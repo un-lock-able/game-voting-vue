@@ -17,6 +17,9 @@ export default {
                 return '-'
             }
             return result
+        },
+        jumpToVote() {
+            this.$router.push("/game/" + this.$route.params.gameId + '/vote')
         }
     },
     async created() {
@@ -40,8 +43,11 @@ export default {
             <el-link :underline="false" @click="$router.push('/home')"><div class="header-size">Moe Voting</div></el-link>
         </el-header>
         <el-main>
-            <el-page-header @back="this.$router.back()">
+            <el-page-header @back="$router.push('/home')" class="page-header-margin">
                 <template #content>{{ game_name }}</template>
+                <template #extra>
+                    <el-link type="primary" :underlin="false" @click="jumpToVote">前往投票！</el-link>
+                </template>
             </el-page-header>
             <el-table :data="scores_list" stripe height="100%">
                 <el-table-column prop="participant_name" label="" fixed>
@@ -59,10 +65,6 @@ export default {
                     </template>
                 </el-table-column>
             </el-table>
-            <!-- {{ $route.params.gameId }}
-            {{ scores_list }}
-            {{ character_list }}
-            {{ game_name }} -->
         </el-main>
     </el-container>
 </template>
