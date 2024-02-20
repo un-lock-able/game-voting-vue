@@ -8,9 +8,12 @@
 }
 
 .center-header {
-    display: inline-flex;
+    display:inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100%;
+}
+
+.header-size {
     font-size: 30px;
 }
