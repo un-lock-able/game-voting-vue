@@ -19,7 +19,7 @@ export default {
     methods: {
         async submitForm() {
             let submit_result = await fetch(
-                    '/api/' + this.$route.params.gameId + '/submit/',
+                    '/back/api/' + this.$route.params.gameId + '/submit/',
                     {
                         method: "POST",
                         body: JSON.stringify({
@@ -39,7 +39,7 @@ export default {
         }
     },
     async created() {
-        let characters = await fetch('/api/' + this.$route.params.gameId + '/characters/').then((response) => response.json())
+        let characters = await fetch('/back/api/' + this.$route.params.gameId + '/characters/').then((response) => response.json())
         if (characters.success) {
             this.character_list = characters.characters
             this.game_name = characters.game_name

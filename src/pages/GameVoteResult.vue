@@ -23,12 +23,12 @@ export default {
         }
     },
     async created() {
-        let scores = await fetch('/api/' + this.$route.params.gameId + '/result/').then((response) => response.json())
+        let scores = await fetch('/back/api/' + this.$route.params.gameId + '/result/').then((response) => response.json())
         if (scores.success) {
             this.scores_list = scores.vote_result
         }
 
-        let characters = await fetch('/api/' + this.$route.params.gameId + '/characters/').then((response) => response.json())
+        let characters = await fetch('/back/api/' + this.$route.params.gameId + '/characters/').then((response) => response.json())
         if (characters.success) {
             this.character_list = characters.characters
             this.game_name = characters.game_name

@@ -25,7 +25,7 @@ export default {
         }
     },
     async created() {
-        let games = await fetch('/api/games').then((response) => response.json())
+        let games = await fetch('/back/api/games/').then((response) => response.json())
         if (games.success) {
             this.games_list = games.games
         }
