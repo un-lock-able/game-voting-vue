@@ -49,15 +49,10 @@ export default {
                     <el-link type="primary" :underlin="false" @click="jumpToVote">前往投票！</el-link>
                 </template>
             </el-page-header>
-            <el-table :data="scores_list" stripe height="100%">
-                <el-table-column prop="participant_name" label="" fixed>
-                    <template #default="scope">
-                        <div class="no-text-wrap">
-                            {{ scope.row.participant_name }}
-                        </div>
-                    </template>
+            <el-table :data="scores_list" stripe>
+                <el-table-column prop="participant_name" label="" fixed resizable min-width="100">
                 </el-table-column>
-                <el-table-column v-for="character in character_list" :label="character.name" :prop="character.name" :formatter="getScore">
+                <el-table-column v-for="character in character_list" :label="character.name" :prop="character.name" :formatter="getScore" min-width="100">
                     <template #header="scope">
                         <div class="no-text-wrap">
                             {{ scope.column.property }}
@@ -70,7 +65,4 @@ export default {
 </template>
 
 <style scoped>
-.no-text-wrap {
-    text-wrap: nowrap;
-}
 </style>
